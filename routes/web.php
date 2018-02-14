@@ -11,10 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(
+[
+    'prefix' => LaravelLocalization::setLocale(),
+    'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+],
+function()
+{
+    Route::get('/', function () {
+        return view('welcome');
+    });
+    
+    Auth::routes();
+    
+    Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 });
-
-Auth::routes();
-
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
