@@ -16,14 +16,19 @@
 <body>
     <div id="app">
         @include('inc.navbar')
-
+        
         <main class="py-4">
-            @include('inc.messages')
-            @yield('content')
+            <div class="container">
+                @include('inc.messages')
+                @yield('content')
+            </div>
         </main>
     </div>
-
+    
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+
+    <!--  Font Awesome 5  -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </body>
 </html>

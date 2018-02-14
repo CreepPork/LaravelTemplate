@@ -12,3 +12,15 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+.fa-globe {
+    margin-top: 8px;
+}
+
+.dropdown-language {
+    cursor: pointer;
+}
+
+.dropdown-language:after {
+    display: none;
+}

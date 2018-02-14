@@ -17,8 +17,8 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
-                        <li><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-                        <li><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+                        <li><a class="nav-link" href="{{ route('login') }}">{{__('navbar.login')}}</a></li>
+                        <li><a class="nav-link" href="{{ route('register') }}">{{__('navbar.register')}}</a></li>
                     @else
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -28,7 +28,7 @@
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
-                                    Logout
+                                    {{__('navbar.logout')}}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -37,6 +37,19 @@
                             </div>
                         </li>
                     @endguest
+                    <!-- Language select -->
+                    <li>
+                        <div class="dropdown dropdown-language">
+                            <i class="fas fa-globe fa-lg dropdown-toggle" id="dropdown-language" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-language">
+                                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                    <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        {{ $properties['native'] }}
+                                    </a>
+                                @endforeach
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
