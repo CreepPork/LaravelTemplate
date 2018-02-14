@@ -10,8 +10,9 @@ Laravel (v5.6) boilerplate template that has extra features enabled out of the b
 4. Duplicate the `.env.example` and rename it to `.env`
 5. Setup the `.env` file to your needs
 6. Run `php artisan key:generate`
-6. Run `npm run dev` to compile all `.js` and `.scss` files
-7. Run `php artisan serve`
+7. Run `npm run dev` to compile all `.js` and `.scss` files
+8. Run `php artisan migrate`
+9. Run `php artisan serve`
 
 And now you should be fully up and running!
 
